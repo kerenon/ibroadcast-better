@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "iBroadcast Better",
+    "description": "Forces the default streaming bitrate to 320kbps if \"Original Bitrate Streaming\" is not selected. Requires premium account to work. The player still shows 128kbps but you can actually hear the difference (or inspect the page source and see there).",
+    "version": "0.37",
+    "permissions": [],
+    "icons": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": [ "*://*.ibroadcast.com/*" ],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["script.js"],
+        "matches": [ "*://*.ibroadcast.com/*" ]
+      }
+    ],
+    "action": {
+      "default_icon": "images/icon32.png"
+    }
+  }
